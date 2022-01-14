@@ -1,9 +1,7 @@
 /**
  * https://gist.github.com/adamwathan/e0a791aa0419098a7ece70028b2e641e
  */
-import {
-    Children, cloneElement, createContext, PropsWithChildren, useContext, useEffect, useRef
-} from "react";
+import { createContext, PropsWithChildren, useContext, useEffect, useRef } from "react";
 import { CSSTransition as ReactCSSTransition } from "react-transition-group";
 
 type TransitionState = {

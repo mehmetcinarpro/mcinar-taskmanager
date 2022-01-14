@@ -1,6 +1,7 @@
-import { MenuIcon } from "@heroicons/react/outline";
+import { MenuIcon, SearchIcon } from "@heroicons/react/outline";
 
 import useSidebarContext from "../hooks/useSidebarContext";
+import Input from "./Input";
 
 interface IHeaderProps {}
 
@@ -18,6 +19,15 @@ const Header: React.FC<IHeaderProps> = () => {
         >
           <MenuIcon className="w-6 h-6" aria-hidden="true" />
         </button>
+        {/* Search input */}
+        <div className="flex flex-1 justify-center lg:mr-32">
+          <div className="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
+            <div className="absolute inset-y-0 flex items-center pl-2">
+              <SearchIcon className="w-4 h-4" aria-hidden="true" />
+            </div>
+            <Input type="text" className="pl-8 text-gray-700" placeholder="Search for projects" aria-label="Search" />
+          </div>
+        </div>
       </div>
     </header>
   );
