@@ -1,11 +1,13 @@
-import { MenuIcon, SearchIcon } from "@heroicons/react/outline";
+import { MenuIcon, MoonIcon, SearchIcon, SunIcon } from "@heroicons/react/outline";
 
 import useSidebarContext from "../hooks/useSidebarContext";
+import useThemeContext from "../hooks/useTheme";
 import Input from "./Input";
 
 interface IHeaderProps {}
 
 const Header: React.FC<IHeaderProps> = () => {
+  const { theme, toggleTheme } = useThemeContext();
   const { toggle } = useSidebarContext();
 
   return (
@@ -28,6 +30,18 @@ const Header: React.FC<IHeaderProps> = () => {
             <Input type="text" className="pl-8 text-gray-700" placeholder="Search for projects" aria-label="Search" />
           </div>
         </div>
+        <ul className="flex items-center flex-shrink-0 space-x-6">
+          {/* <!-- Theme toggler --> */}
+          <li className="flex">
+            <button
+              className="rounded-md focus:outline-none focus:shadow-outline-purple"
+              onClick={toggleTheme}
+              aria-label="Toggle color mode"
+            >
+              {theme === "dark" ? <SunIcon className="w-5 h-5" aria-hidden="true" /> : <MoonIcon className="w-5 h-5" aria-hidden="true" />}
+            </button>
+          </li>
+        </ul>
       </div>
     </header>
   );
